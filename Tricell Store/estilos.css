@@ -1,0 +1,322 @@
+/* --- VARIABLES GLOBALES - PALETA CYBERPUNK CYBER-NEON --- */
+:root {
+  --bg-principal: #0d1117;       /* Azul noche muy oscuro */
+  --bg-tarjetas: #161b22;        /* Azul grafito para contenedores y headers */
+  --color-cyan: #00f0ff;         /* Cyan neón para hover principal */
+  --color-violeta: #8a2be2;      /* Violeta neón para acentos secundarios */
+  --texto-blanco: #ffffff;       /* Texto principal */
+  --texto-gris: #c9d1d9;         /* Texto secundario */
+  --borde-subtil: #30363d;       /* Bordes metálicos finos */
+}
+
+/* --- RESET GENERAL --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--bg-principal) !important;
+  color: var(--texto-blanco);
+}
+
+/* --- ENCABEZADO PRINCIPAL --- */
+.header-top {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 15px 40px !important;
+  background-color: var(--bg-tarjetas) !important;
+  border-bottom: 1px solid var(--borde-subtil);
+}
+
+/* Logo */
+.logo a {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.03);
+}
+
+/* MENÚ DE ACCIONES (DERECHA) */
+.user-menu {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 25px !important;
+  align-items: center !important;
+}
+
+.user-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  color: var(--texto-blanco) !important;
+  text-decoration: none !important;
+  font-weight: bold;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.user-item:hover {
+  color: var(--color-cyan) !important;
+  text-shadow: 0 0 8px var(--color-cyan);
+}
+
+/* --- BARRA DE NAVEGACIÓN PRINCIPAL --- */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: var(--bg-tarjetas);
+  border-bottom: 1px solid var(--borde-subtil);
+}
+
+.menu li a {
+  display: block;
+  color: var(--texto-blanco);
+  text-decoration: none;
+  padding: 14px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.menu li a:hover {
+  background: var(--bg-principal);
+  color: var(--color-cyan);
+  text-shadow: 0 0 8px var(--color-cyan);
+}
+
+/* --- SECCIÓN DEL CARRUSEL --- */
+
+/* El contenedor del carrusel se vuelve transparente */
+.container.mt-4 {
+  background: transparent !important;
+}
+
+.carousel-inner {
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid var(--borde-subtil);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+}
+
+/* Resplandor neón en el carrusel al pasar el cursor */
+.carousel-inner:hover {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.35), 0 0 10px rgba(138, 43, 226, 0.2);
+}
+
+/* CAPA DE SOMBRA INFERIOR DEGRADADA (INDEPENDIENTE) */
+.carousel-inner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(to top, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0) 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.carousel:hover .carousel-inner::after {
+  opacity: 1;
+}
+
+/* TEXTO DEL CARRUSEL OVERLAY */
+.carousel-caption {
+  z-index: 2;
+  background: transparent !important;
+  padding-bottom: 20px;
+}
+
+.carousel-caption h4 {
+  color: var(--texto-blanco);
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.carousel-caption p {
+  color: var(--texto-blanco);
+  font-weight: 400;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+}
+
+.carousel-caption h5:hover,
+.carousel-caption p:hover {
+  color: var(--color-cyan) !important;
+  transform: scale(1.03);
+  text-shadow: 0 0 12px var(--color-cyan), 0 0 20px var(--color-violeta) !important;
+}
+
+/* BOTONES / FLECHAS DEL CARRUSEL (REVELABLES CON HOVER) */
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0 !important;
+  z-index: 3;
+  transition: all 0.4s ease !important;
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+  opacity: 0.7 !important;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1 !important;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  filter: drop-shadow(0 0 10px var(--color-cyan)) drop-shadow(0 0 18px var(--color-violeta)) !important;
+  transform: scale(1.25) !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* --- SECCIÓN DE BENEFICIOS --- */
+.benefits-section {
+  background-color: var(--bg-principal);
+  padding: 40px 0;
+  margin-top: 30px;
+  border-top: 1px solid var(--borde-subtil);
+  border-bottom: 1px solid var(--borde-subtil);
+}
+
+.benefit-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.benefits-section h4,
+.benefits-section h5,
+.benefit-item h4,
+.benefit-item h5 {
+  color: var(--texto-blanco) !important;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.benefits-section p,
+.benefit-item p {
+  color: #c9d1d9 !important; /* Gris claro de alta legibilidad */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.benefit-circle svg {
+  fill: var(--texto-blanco);
+  transition: all 0.3s ease;
+}
+
+.benefit-circle:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-circle:hover svg {
+  fill: var(--color-cyan) !important;
+  filter: drop-shadow(0 0 12px var(--color-cyan)) drop-shadow(0 0 5px var(--color-violeta));
+}
+
+/* --- FOOTER Y REDES SOCIALES --- */
+footer {
+  background-color: var(--bg-tarjetas) !important;
+  border-top: 1px solid var(--borde-subtil);
+  padding: 30px 0;
+}
+
+.footer .bi,
+footer a i {
+  color: var(--texto-blanco);
+  transition: all 0.3s ease !important;
+}
+
+footer a:hover i {
+  color: var(--color-cyan) !important;
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 8px var(--color-cyan));
+}
+
+footer .nav .nav-link {
+  color: var(--texto-gris) !important;
+  transition: all 0.3s ease !important;
+}
+
+footer .nav .nav-link:hover {
+  color: var(--color-cyan) !important;
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px var(--color-cyan);
+}
+
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #d8d8d8;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 70px;
+    }
+
+    .circle {
+      width: 48px;
+      height: 48px;
+      background-color: #a0a0a0;
+      border: 1px solid #5a5a5a;
+      border-radius: 50%;
+    }
+
+    .label {
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #2b2b2b;
+      text-align: center;
+    }
+  </style>

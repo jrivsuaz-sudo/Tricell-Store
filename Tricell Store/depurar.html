@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Elementos Circulares</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #d8d8d8;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 70px;
+    }
+
+    .circle {
+      width: 48px;
+      height: 48px;
+      background-color: #a0a0a0;
+      border: 1px solid #5a5a5a;
+      border-radius: 50%;
+    }
+
+    .label {
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #2b2b2b;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="item">
+      <div class="circle"></div>
+    </div>
+
+    <div class="item">
+      <div class="circle"></div>
+      <span class="label">Beneficios</span>
+    </div>
+
+    <div class="item">
+      <div class="circle"></div>
+    </div>
+  </div>
+
+</body>
+</html>
